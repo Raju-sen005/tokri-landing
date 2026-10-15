@@ -1,0 +1,2774 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tokri — Har Ghar Ki Tokri</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      --green: #087b3e;
+      --dark: #064d2d;
+      --light: #effaf0;
+      --orange: #ff6415;
+      --text: #123326;
+      --muted: #557066;
+      --white: #fff;
+      --shadow: 0 14px 40px rgba(0, 80, 40, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+
+    body {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      color: var(--text);
+      background: #fff;
+    }
+
+    .logo,
+    .hero h1,
+    .section h2,
+    .download h2 {
+      font-weight: 800;
+    }
+
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(1180px, 92%);
+      margin: auto;
+    }
+
+    nav {
+      height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      z-index: 5;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 900;
+      color: var(--green);
+    }
+
+    .logo-mark {
+      width: 50px;
+      height: 48px;
+      position: relative;
+    }
+
+    .logo-basket {
+      position: absolute;
+      left: 5px;
+      top: 14px;
+      width: 39px;
+      height: 29px;
+      border-radius: 5px 5px 12px 12px;
+      background: linear-gradient(135deg, #ff7518, #ff9b19);
+      border: 3px solid #f45b0c;
+    }
+
+    .logo-basket:after {
+      content: "";
+      position: absolute;
+      left: 5px;
+      right: 5px;
+      top: -12px;
+      height: 16px;
+      border: 4px solid #07914b;
+      border-bottom: 0;
+      border-radius: 18px 18px 0 0;
+      transform: rotate(-5deg);
+    }
+
+    .logo-leaf {
+      position: absolute;
+      width: 22px;
+      height: 13px;
+      background: #0b9b50;
+      border-radius: 100% 0 100% 0;
+      left: 27px;
+      top: 0;
+      transform: rotate(-20deg);
+    }
+
+    .logo-text {
+      font-size: 34px;
+      line-height: 1;
+    }
+
+    .logo-sub {
+      font-size: 13px;
+      color: #45655a;
+      font-weight: 600;
+      margin-top: 3px;
+    }
+
+    .navlinks {
+      display: flex;
+      gap: 31px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .navlinks a {
+      padding: 30px 0;
+    }
+
+    .navlinks a:first-child {
+      color: var(--green);
+      border-bottom: 3px solid var(--green);
+    }
+
+    .download-top {
+      background: var(--green);
+      color: #fff;
+      padding: 13px 23px;
+      border-radius: 18px;
+      font-weight: 800;
+      box-shadow: 0 8px 20px rgba(8, 123, 62, 0.22);
+    }
+
+    .hero {
+      min-height: 540px;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(120deg, #f7fff8 0%, #edf8ff 55%, #fff 100%);
+    }
+
+    .hero:before,
+    .hero:after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(2px);
+      opacity: 0.55;
+    }
+
+    .hero:before {
+      width: 480px;
+      height: 480px;
+      background: #d8f5dd;
+      left: -250px;
+      bottom: -300px;
+    }
+
+    .hero:after {
+      width: 420px;
+      height: 420px;
+      background: #fff4dc;
+      right: -180px;
+      top: -210px;
+    }
+
+    .hero-inner {
+      min-height: 540px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-copy {
+      width: 53%;
+      padding: 28px 0 55px;
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      line-height: 1.12;
+      letter-spacing: -1.5px;
+      color: #07522f;
+      margin-bottom: 17px;
+    }
+
+    .hero h1 span {
+      color: var(--orange);
+    }
+
+    .hero p {
+      font-size: 17px;
+      line-height: 1.6;
+      max-width: 580px;
+      color: #233e33;
+    }
+
+    .hero-features {
+      display: flex;
+      gap: 30px;
+      margin: 25px 0 30px;
+    }
+
+    .feature {
+      display: flex;
+      gap: 9px;
+      align-items: center;
+      font-weight: 800;
+      font-size: 15px;
+    }
+
+    .feature .ico {
+      font-size: 25px;
+    }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 18px;
+      background: var(--orange);
+      color: #fff;
+      padding: 17px 35px;
+      border-radius: 28px;
+      font-size: 20px;
+      font-weight: 900;
+      box-shadow: 0 12px 28px rgba(255, 100, 21, 0.25);
+    }
+
+    .store-row {
+      display: flex;
+      gap: 12px;
+      margin-top: 17px;
+    }
+
+    .store {
+      height: 45px;
+      background: #050505;
+      color: #fff;
+      border-radius: 8px;
+      padding: 5px 15px;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      min-width: 152px;
+    }
+
+    .store .sicon {
+      font-size: 25px;
+    }
+
+    .store small {
+      font-size: 8px;
+      display: block;
+    }
+
+    .store b {
+      font-size: 15px;
+      line-height: 1;
+    }
+
+    .hero-art {
+      width: 47%;
+      height: 530px;
+      position: relative;
+    }
+
+    .phone {
+      position: absolute;
+      width: 270px;
+      height: 510px;
+      right: 95px;
+      top: 25px;
+      background: #111;
+      border-radius: 42px;
+      padding: 8px;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+      transform: rotate(4deg);
+    }
+
+    .phone-screen {
+      height: 100%;
+      background: #fff;
+      border-radius: 34px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .notch {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 110px;
+      height: 24px;
+      background: #111;
+      border-radius: 0 0 18px 18px;
+      z-index: 2;
+    }
+
+    .app-head {
+      padding: 36px 16px 8px;
+    }
+
+    .app-head small {
+      color: #555;
+    }
+
+    .app-head b {
+      display: block;
+      color: #087b3e;
+      font-size: 12px;
+      margin-bottom: 9px;
+    }
+
+    .search {
+      border: 1px solid #ddd;
+      border-radius: 20px;
+      padding: 9px 12px;
+      color: #888;
+      font-size: 10px;
+    }
+
+    .app-banner {
+      margin: 9px;
+      background: #dff7df;
+      border-radius: 12px;
+      padding: 12px;
+      color: #087b3e;
+    }
+
+    .app-banner b {
+      display: block;
+      font-size: 14px;
+    }
+
+    .app-banner button {
+      border: 0;
+      background: #087b3e;
+      color: white;
+      border-radius: 15px;
+      padding: 5px 11px;
+      font-size: 9px;
+      margin-top: 7px;
+    }
+
+    .app-cats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 7px;
+      padding: 4px 10px;
+    }
+
+    .app-cat {
+      text-align: center;
+      font-size: 7px;
+    }
+
+    .app-cat .ci {
+      background: #f3faf3;
+      border-radius: 10px;
+      padding: 8px;
+      font-size: 21px;
+      margin-bottom: 3px;
+    }
+
+    .bottom-nav {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #fff;
+      border-top: 1px solid #eee;
+      display: flex;
+      justify-content: space-around;
+      padding: 8px 5px;
+      font-size: 8px;
+      color: #555;
+    }
+
+    .bottom-nav b {
+      color: #087b3e;
+    }
+
+    .scooter {
+      position: absolute;
+      right: -20px;
+      bottom: 28px;
+      font-size: 115px;
+      filter: drop-shadow(0 15px 15px rgba(0, 0, 0, 0.15));
+    }
+
+    .local-note {
+      position: absolute;
+      right: -2px;
+      top: 120px;
+      color: #0a6a3a;
+      font-size: 17px;
+      font-weight: 900;
+      font-family: cursive;
+      transform: rotate(-8deg);
+    }
+
+    .local-note:after {
+      content: "↙";
+      display: block;
+      font-size: 30px;
+      text-align: center;
+    }
+
+    .section {
+      padding: 58px 0;
+    }
+
+    .category-section {
+      background: linear-gradient(#f4fff4, #edfaed);
+    }
+
+    .section-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 30px;
+    }
+
+    .section h2 {
+      font-size: 31px;
+      color: #07552f;
+    }
+
+    .section-head p {
+      margin-top: 5px;
+      color: #45665a;
+    }
+
+    .view-all {
+      color: #07813f;
+      font-weight: 800;
+    }
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      gap: 12px;
+    }
+
+    .cat-card {
+      background: #fff;
+      border-radius: 15px;
+      padding: 13px 8px;
+      text-align: center;
+      box-shadow: 0 5px 20px rgba(0, 80, 40, 0.06);
+      min-height: 150px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .cat-img {
+      height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 50px;
+      margin-bottom: 7px;
+    }
+
+    .cat-card b {
+      font-size: 13px;
+      line-height: 1.2;
+    }
+
+    .why {
+      position: relative;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .why-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 25px;
+      margin-top: 38px;
+    }
+
+    .why-item {
+      text-align: center;
+    }
+
+    .why-icon {
+      width: 58px;
+      height: 58px;
+      margin: auto;
+      background: #07994b;
+      color: #fff;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 27px;
+    }
+
+    .why-item h3 {
+      font-size: 15px;
+      margin: 12px 0 7px;
+    }
+
+    .why-item p {
+      font-size: 12px;
+      color: #5d746a;
+      line-height: 1.45;
+    }
+
+    .grocery-art {
+      position: absolute;
+      right: -10px;
+      bottom: -45px;
+      font-size: 145px;
+      opacity: 0.98;
+    }
+
+    .download {
+      padding: 62px 0 80px;
+      background: linear-gradient(170deg, #00582f, #007d43);
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .download:before,
+    .download:after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      border: 70px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .download:before {
+      width: 360px;
+      height: 360px;
+      left: -200px;
+      top: -220px;
+    }
+
+    .download:after {
+      width: 430px;
+      height: 430px;
+      right: -250px;
+      bottom: -310px;
+    }
+
+    .download-inner {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+
+    .download h2 {
+      color: #fff;
+      font-size: 31px;
+    }
+
+    .download p {
+      font-size: 17px;
+      margin: 8px 0 20px;
+      color: #e4fff0;
+    }
+
+    .download .store-row {
+      justify-content: center;
+    }
+
+    .steps {
+      display: flex;
+      justify-content: center;
+      gap: 34px;
+      margin-top: 30px;
+    }
+
+    .step {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .step-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: #fff;
+      color: #087b3e;
+      display: grid;
+      place-items: center;
+    }
+
+    .hand-phone {
+      position: absolute;
+      left: 55px;
+      bottom: -20px;
+      font-size: 95px;
+      transform: rotate(-7deg);
+    }
+
+    footer {
+      padding: 25px 0;
+      text-align: center;
+      color: #6b8078;
+      font-size: 13px;
+      background: #f7fbf8;
+    }
+
+    .mobile-menu {
+      display: none;
+      border: 0;
+      background: transparent;
+      padding: 8px;
+      cursor: pointer;
+      line-height: 1;
+      border-radius: 10px;
+    }
+
+    @media (max-width: 900px) {
+      .navlinks {
+        display: none;
+      }
+
+      .mobile-menu {
+        display: block;
+        font-size: 28px;
+        color: var(--green);
+      }
+
+      .download-top {
+        display: none;
+      }
+
+      .hero-inner {
+        flex-direction: column;
+      }
+
+      .hero-copy {
+        width: 100%;
+        padding-top: 45px;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 35px;
+      }
+
+      .hero p {
+        margin: auto;
+      }
+
+      .hero-features {
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .hero-art {
+        width: 100%;
+        height: 430px;
+      }
+
+      .phone {
+        right: 50%;
+        transform: translateX(45%) rotate(4deg);
+        width: 220px;
+        height: 415px;
+      }
+
+      .scooter {
+        right: 0;
+        font-size: 80px;
+      }
+
+      .local-note {
+        display: none;
+      }
+
+      .categories {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .why-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .grocery-art {
+        opacity: 0.2;
+      }
+    }
+
+    @media (max-width: 560px) {
+      nav {
+        height: 70px;
+      }
+
+      .logo-text {
+        font-size: 28px;
+      }
+
+      .logo-mark {
+        transform: scale(0.8);
+        transform-origin: left center;
+      }
+
+      .hero h1 {
+        font-size: 29px;
+      }
+
+      .hero p {
+        font-size: 14px;
+      }
+
+      .hero-features {
+        gap: 15px;
+      }
+
+      .feature {
+        font-size: 12px;
+      }
+
+      .cta {
+        font-size: 17px;
+        padding: 15px 24px;
+      }
+
+      .store {
+        min-width: 138px;
+        padding: 5px 9px;
+      }
+
+      .store b {
+        font-size: 12px;
+      }
+
+      .hero-art {
+        height: 370px;
+      }
+
+      .phone {
+        width: 190px;
+        height: 355px;
+        right: 50%;
+        top: 10px;
+      }
+
+      .scooter {
+        font-size: 62px;
+        bottom: 15px;
+      }
+
+      .section {
+        padding: 43px 0;
+      }
+
+      .section h2 {
+        font-size: 25px;
+      }
+
+      .section-head {
+        align-items: flex-end;
+      }
+
+      .section-head p {
+        font-size: 12px;
+      }
+
+      .view-all {
+        font-size: 12px;
+      }
+
+      .categories {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .cat-card {
+        min-height: 135px;
+      }
+
+      .why-grid {
+        gap: 18px;
+      }
+
+      .why-item p {
+        font-size: 11px;
+      }
+
+      .steps {
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .hand-phone {
+        display: none;
+      }
+    }
+
+    /* Responsive refinements: preserve the existing Tokri visual design */
+    img {
+      max-width: 100%;
+    }
+
+    body {
+      overflow-x: clip;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 48px));
+    }
+
+    nav {
+      gap: 18px;
+    }
+
+    .logo {
+      flex-shrink: 0;
+    }
+
+    .navlinks {
+      align-items: center;
+    }
+
+    .hero-copy,
+    .hero-art {
+      min-width: 0;
+    }
+
+    .hero-art {
+      min-height: 0;
+    }
+
+    .store-row {
+      flex-wrap: wrap;
+    }
+
+    .store {
+      flex: 0 1 auto;
+    }
+
+    .section-head {
+      gap: 18px;
+    }
+
+    .cat-card,
+    .why-item,
+    .step {
+      min-width: 0;
+    }
+
+    .download-inner {
+      padding-inline: 8px;
+    }
+
+    .steps {
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .hand-phone img {
+      display: block;
+      width: min(360px, 100%);
+      height: auto;
+    }
+
+    @media (max-width: 1100px) {
+      .navlinks {
+        gap: 18px;
+        font-size: 13px;
+      }
+
+      .logo-text {
+        font-size: 30px;
+      }
+
+      .download-top {
+        padding: 12px 16px;
+        white-space: nowrap;
+      }
+
+      .hero-copy {
+        width: 52%;
+      }
+
+      .hero-art {
+        width: 48%;
+      }
+
+      .phone {
+        right: 42px;
+      }
+
+      .scooter {
+        right: -8px;
+        font-size: 90px;
+      }
+
+      .categories {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .why-grid {
+        gap: 20px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      nav {
+        height: 76px;
+      }
+
+      .navlinks {
+        display: none;
+      }
+
+      .navlinks.is-open {
+        display: flex;
+        position: absolute;
+        top: calc(100% - 2px);
+        right: 0;
+        width: min(300px, calc(100vw - 32px));
+        padding: 10px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        background: #fff;
+        border: 1px solid #e6f0e8;
+        border-radius: 16px;
+        box-shadow: 0 16px 40px rgba(0, 60, 30, 0.16);
+      }
+
+      .navlinks.is-open a {
+        display: block;
+        padding: 13px 14px;
+        border: 0;
+        border-radius: 10px;
+      }
+
+      .navlinks.is-open a:first-child,
+      .navlinks.is-open a:hover {
+        color: var(--green);
+        background: var(--light);
+        border: 0;
+      }
+
+      .mobile-menu {
+        display: inline-grid;
+        place-items: center;
+        flex: 0 0 auto;
+        font-size: 27px;
+        color: var(--green);
+      }
+
+      .hero-inner {
+        flex-direction: column;
+        min-height: auto;
+      }
+
+      .hero-copy {
+        width: 100%;
+        padding: 42px 0 12px;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: clamp(32px, 5vw, 40px);
+      }
+
+      .hero p {
+        margin-inline: auto;
+      }
+
+      .hero-features {
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .hero-copy>.cta {
+        justify-content: center;
+      }
+
+      .hero-copy .store-row {
+        justify-content: center;
+      }
+
+      .hero-art {
+        width: 100%;
+        height: clamp(360px, 58vw, 430px);
+      }
+
+      .phone {
+        left: 50%;
+        right: auto;
+        top: 12px;
+        width: 220px;
+        height: 415px;
+        transform: translateX(-50%) rotate(3deg);
+      }
+
+      .scooter {
+        right: max(0px, calc(50% - 245px));
+        bottom: 18px;
+        font-size: 78px;
+      }
+
+      .local-note,
+      .hand-phone {
+        display: none;
+      }
+
+      .why-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .why-item p {
+        max-width: 250px;
+        margin-inline: auto;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .container {
+        width: calc(100% - 32px);
+      }
+
+      nav {
+        height: 68px;
+        gap: 8px;
+      }
+
+      .logo {
+        gap: 5px;
+      }
+
+      .logo-mark {
+        width: 42px;
+        height: 42px;
+        transform: none;
+      }
+
+      .logo-mark img {
+        width: 42px;
+        height: 42px;
+        object-fit: contain;
+      }
+
+      .logo-text {
+        font-size: 25px;
+      }
+
+      .logo-sub {
+        font-size: 10px;
+      }
+
+      .hero-copy {
+        padding-top: 34px;
+      }
+
+      .hero h1 {
+        font-size: clamp(27px, 7.4vw, 34px);
+        line-height: 1.16;
+        letter-spacing: -0.8px;
+      }
+
+      .hero p {
+        font-size: 14px;
+        line-height: 1.65;
+      }
+
+      .hero-features {
+        gap: 14px 18px;
+        margin: 22px 0 25px;
+      }
+
+      .feature {
+        gap: 6px;
+        font-size: 12px;
+        text-align: left;
+      }
+
+      .feature .ico,
+      .feature .ico img {
+        width: 22px;
+        height: 22px;
+        font-size: 22px;
+        object-fit: contain;
+      }
+
+      .cta {
+        width: 100%;
+        max-width: 330px;
+        justify-content: center;
+        gap: 10px;
+        padding: 15px 18px;
+        border-radius: 22px;
+        font-size: 16px;
+      }
+
+      .hero-copy .store-row,
+      .download .store-row {
+        width: 100%;
+        gap: 9px;
+      }
+
+      .hero-copy .store-row {
+        justify-content: center;
+      }
+
+      .store {
+        min-width: 0;
+        flex: 1 1 140px;
+        max-width: 180px;
+        height: 44px;
+        padding: 5px 9px;
+        gap: 7px;
+      }
+
+      .store .sicon,
+      .store .sicon img {
+        flex: 0 0 auto;
+        width: 22px;
+        height: 22px;
+        object-fit: contain;
+      }
+
+      .store small {
+        font-size: 7px;
+      }
+
+      .store b {
+        font-size: 11px;
+        white-space: nowrap;
+      }
+
+      .hero-art {
+        height: 355px;
+      }
+
+      .phone {
+        width: 185px;
+        height: 345px;
+        top: 6px;
+        padding: 6px;
+        border-radius: 32px;
+      }
+
+      .phone-screen {
+        border-radius: 26px;
+      }
+
+      .notch {
+        width: 82px;
+        height: 19px;
+      }
+
+      .app-head {
+        padding: 29px 11px 6px;
+      }
+
+      .app-head b {
+        font-size: 10px;
+        margin-bottom: 6px;
+      }
+
+      .search {
+        padding: 7px 9px;
+        font-size: 8px;
+      }
+
+      .app-banner {
+        margin: 7px;
+        padding: 9px;
+      }
+
+      .app-banner b {
+        font-size: 11px;
+      }
+
+      .app-banner small {
+        font-size: 8px;
+      }
+
+      .app-banner button {
+        margin-top: 5px;
+        padding: 4px 8px;
+        font-size: 8px;
+      }
+
+      .app-cats {
+        gap: 5px;
+        padding: 3px 7px;
+      }
+
+      .app-cat {
+        font-size: 6px;
+      }
+
+      .app-cat .ci {
+        padding: 5px;
+        font-size: 16px;
+      }
+
+      .app-cat .ci img {
+        width: 16px;
+        height: 16px;
+        object-fit: contain;
+      }
+
+      .bottom-nav {
+        padding: 6px 3px;
+        font-size: 6px;
+      }
+
+      .bottom-nav img {
+        width: 10px;
+        height: 10px;
+        object-fit: contain;
+      }
+
+      .scooter {
+        right: 0;
+        bottom: 12px;
+        font-size: 58px;
+      }
+
+      .scooter img {
+        width: 76px;
+        height: 76px;
+        object-fit: contain;
+      }
+
+      .section {
+        padding: 42px 0;
+      }
+
+      .section-head {
+        align-items: flex-start;
+        margin-bottom: 22px;
+      }
+
+      .section h2,
+      .download h2 {
+        font-size: 25px;
+        line-height: 1.25;
+      }
+
+      .section-head p {
+        font-size: 12px;
+        line-height: 1.5;
+      }
+
+      .categories {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .cat-card {
+        min-height: 128px;
+        padding: 12px 7px;
+        border-radius: 13px;
+      }
+
+      .cat-img {
+        height: 62px;
+        font-size: 43px;
+      }
+
+      .cat-img img {
+        width: 26px;
+        height: 26px;
+        object-fit: contain;
+      }
+
+      .why>.container>p {
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
+      .why-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 25px 14px;
+        margin-top: 28px;
+      }
+
+      .why-icon {
+        width: 52px;
+        height: 52px;
+      }
+
+      .why-icon img {
+        width: 23px;
+        height: 23px;
+        object-fit: contain;
+      }
+
+      .why-item h3 {
+        font-size: 13px;
+      }
+
+      .why-item p {
+        font-size: 11px;
+      }
+
+      .download {
+        padding: 46px 0 48px;
+      }
+
+      .download p {
+        font-size: 13px;
+        line-height: 1.6;
+      }
+
+      .download .store-row {
+        justify-content: center;
+      }
+
+      .steps {
+        gap: 10px;
+        margin-top: 25px;
+      }
+
+      .step {
+        gap: 6px;
+        font-size: 11px;
+      }
+
+      .step-icon {
+        width: 32px;
+        height: 32px;
+        flex: 0 0 auto;
+      }
+
+      .step-icon img {
+        width: 21px;
+        height: 21px;
+        object-fit: contain;
+      }
+
+      footer {
+        padding: 20px 16px;
+        font-size: 11px;
+        line-height: 1.6;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .container {
+        width: calc(100% - 24px);
+      }
+
+      .logo-text {
+        font-size: 23px;
+      }
+
+      .logo-sub {
+        font-size: 9px;
+      }
+
+      .hero-features {
+        gap: 12px;
+      }
+
+      .feature {
+        font-size: 11px;
+      }
+
+      .store {
+        flex-basis: 132px;
+        padding-inline: 7px;
+      }
+
+      .store b {
+        font-size: 10px;
+      }
+
+      .hero-art {
+        height: 330px;
+      }
+
+      .phone {
+        width: 172px;
+        height: 322px;
+      }
+
+      .scooter img {
+        width: 62px;
+        height: 62px;
+      }
+
+      .why-grid {
+        gap: 22px 10px;
+      }
+
+      .steps>div:nth-child(even) {
+        display: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+    }
+
+
+    /* Areas section — matches the existing Tokri green/orange visual system */
+    .areas-section {
+      background: linear-gradient(180deg, #ffffff 0%, #f7fcf7 100%);
+    }
+
+    .areas-head {
+      align-items: center;
+    }
+
+    .areas-live {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      padding: 9px 13px;
+      border: 1px solid #d8efdc;
+      border-radius: 999px;
+      background: #fff;
+      color: #087b3e;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .areas-live-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #16a34a;
+      box-shadow: 0 0 0 4px rgba(22, 163, 74, .12);
+    }
+
+    .areas-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .area-card {
+      min-width: 0;
+      overflow: hidden;
+      background: #fff;
+      border: 1px solid #e5f0e7;
+      border-radius: 22px;
+      box-shadow: 0 10px 30px rgba(0, 80, 40, .07);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .area-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px rgba(0, 80, 40, .12);
+    }
+
+    .area-art {
+      min-height: 155px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .area-art::before,
+    .area-art::after {
+      content: "";
+      position: absolute;
+      border: 1px solid rgba(8, 123, 62, .10);
+      border-radius: 50%;
+      width: 180px;
+      height: 180px;
+    }
+
+    .area-art::after {
+      width: 240px;
+      height: 240px;
+    }
+
+    .area-art-gulabpura {
+      background: linear-gradient(135deg, #e4f9e7, #f7fff4);
+    }
+
+    .area-art-vijaynagar {
+      background: linear-gradient(135deg, #fff0df, #fffaf1);
+    }
+
+    .area-pin {
+      width: 68px;
+      height: 68px;
+      z-index: 1;
+      display: grid;
+      place-items: center;
+      border-radius: 22px;
+      color: #fff;
+      background: var(--green);
+      box-shadow: 0 10px 24px rgba(8, 123, 62, .22);
+      transform: rotate(-4deg);
+    }
+
+    .area-art-vijaynagar .area-pin {
+      background: var(--orange);
+      box-shadow: 0 10px 24px rgba(255, 100, 21, .22);
+      transform: rotate(4deg);
+    }
+
+    .area-art-label {
+      position: absolute;
+      z-index: 1;
+      bottom: 13px;
+      left: 16px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      color: #24533b;
+      background: rgba(255, 255, 255, .82);
+      font-size: 10px;
+      font-weight: 800;
+    }
+
+    .area-card-content {
+      padding: 22px;
+    }
+
+    .area-eyebrow {
+      color: #0b8b46;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 1.1px;
+    }
+
+    .area-card h3 {
+      margin: 7px 0 8px;
+      color: #07552f;
+      font-size: 24px;
+    }
+
+    .area-card p {
+      max-width: 420px;
+      color: #557066;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .area-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 17px;
+      color: #087b3e;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .area-link span,
+    .areas-note-cta span {
+      transition: transform .2s ease;
+    }
+
+    .area-link:hover span,
+    .areas-note-cta:hover span {
+      transform: translateX(4px);
+    }
+
+    .areas-note {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 22px;
+      padding: 17px 20px;
+      border: 1px solid #e0eee2;
+      border-radius: 16px;
+      background: #fff;
+    }
+
+    .areas-note-icon {
+      flex: 0 0 auto;
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 13px;
+      background: #effaf0;
+      font-size: 20px;
+    }
+
+    .areas-note p {
+      flex: 1;
+      color: #557066;
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .areas-note p strong {
+      color: #123326;
+      font-size: 13px;
+    }
+
+    .areas-note-cta {
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--orange);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    @media (max-width: 900px) {
+      .areas-grid {
+        gap: 16px;
+      }
+
+      .area-card-content {
+        padding: 18px;
+      }
+
+      .area-art {
+        min-height: 140px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .areas-head {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 13px;
+      }
+
+      .areas-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 15px;
+      }
+
+      .area-art {
+        min-height: 125px;
+      }
+
+      .area-card-content {
+        padding: 17px;
+      }
+
+      .area-card h3 {
+        font-size: 22px;
+      }
+
+      .area-card p {
+        font-size: 12px;
+      }
+
+      .areas-note {
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 14px;
+      }
+
+      .areas-note p {
+        min-width: calc(100% - 56px);
+      }
+
+      .areas-note-cta {
+        margin-left: 52px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      .area-card,
+      .area-link span,
+      .areas-note-cta span {
+        transition: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a class="logo" href="#">
+          <div class="logo-mark">
+            <!-- <div class="logo-leaf"></div> -->
+            <!-- <div class="logo-basket"></div> -->
+            <img src="./assets/img/icon-removebg-preview.png" alt="Tokri Logo" width="50" height="50" />
+          </div>
+          <div>
+            <div class="logo-text">Tokri</div>
+            <div class="logo-sub">Har Ghar ki Tokri</div>
+          </div>
+        </a>
+        <div class="navlinks" id="primary-navigation">
+          <a href="#">Home</a><a href="#products">Products</a><a
+            href="#areas">Areas</a><a href="#about">About Us</a><a href="#contact">Contact</a>
+        </div>
+        <a class="download-top" href="#download">
+          <!-- <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 3V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            <path d="M7 10L12 15L17 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+            <path d="M5 21H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </svg> -->
+          <span>Download App</span>
+        </a>
+        <button class="mobile-menu" type="button" aria-label="Open navigation menu" aria-expanded="false"
+          aria-controls="primary-navigation">☰</button>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <h1>
+          Gulabpura &amp; Vijaynagar<br />ki apni <span>Online Tokri</span>
+        </h1>
+        <p>
+          Fresh Grocery, Daily Needs, Fruits, Vegetables and much more — ab
+          sab kuch milega aapke ghar par, sirf kuch hi minutes me!
+        </p>
+        <div class="hero-features">
+          <div class="feature">
+            <span class="ico">
+              <img src="./assets/img/fast-shipping.png" alt="" class="ico" width="25" height="25" />
+            </span> Fast<br />Delivery
+          </div>
+          <div class="feature">
+            <span class="ico">
+              <img src="./assets/img/service.png" alt="" class="ico" width="25" height="25" />
+            </span> Fresh &amp;<br />Quality Products
+          </div>
+          <div class="feature">
+            <span class="ico">
+              <img src="./assets/img/best-price.png" alt="" class="ico" width="25" height="25" />
+            </span> Best<br />Prices
+          </div>
+        </div>
+        <a class="cta" href="#download">Download Tokri App <span>→</span></a>
+        <div class="store-row">
+          <div class="store">
+            <span class="sicon">
+              <img src="./assets/img/google-play.png" alt="" class="sicon" width="25" height="25" />
+            </span>
+            <div><small>GET IT ON</small><b>Google Play</b></div>
+          </div>
+          <div class="store">
+            <span class="sicon">
+              <img src="./assets/img/game.png" alt="" class="sicon" width="25" height="25" />
+            </span>
+            <div><small>Download on the</small><b>App Store</b></div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-art">
+        <div class="local-note">Local Stores<br />Fast Delivery</div>
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="notch"></div>
+            <div class="app-head">
+              <small>
+                <img src="./assets/img/placeholder.png" alt="location icon" width="12" height="12" />
+                Delivering to</small><b>Gulabpura, Rajasthan</b>
+              <div class="search">
+                <img src="./assets/img/search.png" alt="search icon" width="12" height="12" />
+                &nbsp; Search for products...
+              </div>
+            </div>
+            <div class="app-banner">
+              <b>Fresh Fruits &amp;<br />Vegetables</b><small>Direct from Local Stores</small><br /><button>
+                Order Now
+              </button>
+            </div>
+            <div class="app-cats">
+              <div class="app-cat">
+                <div class="ci">🥬</div>
+                Fruits &amp; Veg
+              </div>
+              <div class="app-cat">
+                <div class="ci">🛒</div>
+                Grocery
+              </div>
+              <div class="app-cat">
+                <div class="ci">🥛</div>
+                Dairy &amp; Bakery
+              </div>
+              <div class="app-cat">
+                <div class="ci">🥤</div>
+                Beverages
+              </div>
+              <div class="app-cat">
+                <div class="ci">🧴</div>
+                Personal Care
+              </div>
+              <div class="app-cat">
+                <div class="ci">🧹</div>
+                Household
+              </div>
+              <div class="app-cat">
+                <div class="ci">🍟</div>
+                Snacks
+              </div>
+              <div class="app-cat">
+                <div class="ci">
+                  <img src="./assets/img/more.png" alt="more icon" width="12" height="12" />
+                </div>
+                More
+              </div>
+            </div>
+            <div class="bottom-nav">
+              <b>
+                <img src="./assets/img/home.png" alt="home icon" width="12" height="12" />
+                <br />Home</b><span>
+                <img src="./assets/img/category.png" alt="categories icon" width="12" height="12" />
+                <br />Categories</span><span>
+                <img src="./assets/img/shopping-bag.png" alt="cart icon" width="12" height="12" />
+                <br />Cart</span><span>
+                <img src="./assets/img/package.png" alt="orders icon" width="12" height="12" />
+                <br />Orders</span><span>
+                <img src="./assets/img/user.png" alt="profile icon" width="12" height="12" />
+                <br />Profile</span>
+            </div>
+          </div>
+        </div>
+        <div class="scooter">
+          <img src="./assets/img/free-delivery.png" alt="" width="115" height="115" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section category-section" id="products">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Shop by Category</h2>
+          <p>Har roz ki zaroorat ka sab kuch ek hi app par</p>
+        </div>
+        <!-- <a class="view-all" href="#">View All Categories →</a> -->
+      </div>
+      <div class="categories">
+        <div class="cat-card">
+          <div class="cat-img">🥬</div>
+          <b>Fruits &amp;<br />Vegetables</b>
+        </div>
+        <div class="cat-card">
+          <div class="cat-img">🛍️</div>
+          <b>Grocery &amp;<br />Staples</b>
+        </div>
+        <div class="cat-card">
+          <div class="cat-img">🥛</div>
+          <b>Dairy &amp;<br />Bakery</b>
+        </div>
+        <div class="cat-card">
+          <div class="cat-img">🥤</div>
+          <b>Beverages</b>
+        </div>
+        <div class="cat-card">
+          <div class="cat-img">🧴</div>
+          <b>Personal Care</b>
+        </div>
+        <div class="cat-card">
+          <div class="cat-img">🧹</div>
+          <b>Household<br />Essentials</b>
+        </div>
+        <div class="cat-card">
+          <div class="cat-img">🍿</div>
+          <b>Snacks &amp;<br />Munchies</b>
+        </div>
+        <div class="cat-card">
+          <div class="cat-img">
+            <img src="./assets/img/more.png" alt="more icon" width="24" height="24" />
+          </div>
+          <b>More<br />Categories</b>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section areas-section" id="areas">
+    <div class="container">
+      <div class="section-head areas-head">
+        <div>
+          <h2>Tokri Aapke Area Mein</h2>
+          <p>Gulabpura aur Vijaynagar ke liye local daily-needs delivery</p>
+        </div>
+        <span class="areas-live"><span class="areas-live-dot"></span> Local Delivery</span>
+      </div>
+
+      <div class="areas-grid">
+        <article class="area-card">
+          <div class="area-art area-art-gulabpura" aria-hidden="true">
+            <span class="area-pin">
+              <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.8"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z" />
+                <circle cx="12" cy="10" r="2.5" />
+              </svg>
+            </span>
+            <span class="area-art-label">Aapka Apna Shehar</span>
+          </div>
+          <div class="area-card-content">
+            <span class="area-eyebrow">TOKRI DELIVERY AREA</span>
+            <h3>Gulabpura</h3>
+            <p>Grocery, fruits, vegetables aur daily needs — aapke local area ke liye.</p>
+            <a href="#download" class="area-link">Tokri App Download Karein <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+
+        <article class="area-card">
+          <div class="area-art area-art-vijaynagar" aria-hidden="true">
+            <span class="area-pin">
+              <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.8"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z" />
+                <circle cx="12" cy="10" r="2.5" />
+              </svg>
+            </span>
+            <span class="area-art-label">Local Stores, Local Service</span>
+          </div>
+          <div class="area-card-content">
+            <span class="area-eyebrow">TOKRI DELIVERY AREA</span>
+            <h3>Vijaynagar</h3>
+            <p>Rozmarra ki zarooraton ke products ek hi jagah, aasaan ordering ke saath.</p>
+            <a href="#download" class="area-link">Tokri App Download Karein <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+      </div>
+
+      <div class="areas-note">
+        <span class="areas-note-icon" aria-hidden="true">📍</span>
+        <p><strong>Apna area check karein</strong><br />Delivery availability aapke exact location ke hisaab se app mein
+          confirm karein.</p>
+        <a href="#download" class="areas-note-cta">Get Started <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section why" id="about">
+    <div class="container why-content">
+      <h2>Why Choose Tokri?</h2>
+      <p>Aapke shehar ki apni delivery seva</p>
+      <div class="why-grid">
+        <div class="why-item">
+          <div class="why-icon">
+            <img src="./assets/img/fast-shipping.png" alt="" width="25" height="25" />
+          </div>
+          <h3>Fast Delivery</h3>
+          <p>Aapke ghar tak tez aur samay par</p>
+        </div>
+        <div class="why-item">
+          <div class="why-icon">
+            <img src="./assets/img/service.png" alt="" width="25" height="25" />
+          </div>
+          <h3>Fresh Products</h3>
+          <p>Hamesha fresh aur quality items</p>
+        </div>
+        <div class="why-item">
+          <div class="why-icon">
+            <img src="./assets/img/placeholder.png" alt="" width="25" height="25" />
+          </div>
+          <h3>Local Stores</h3>
+          <p>Gulabpura &amp; Vijaynagar ke local vyapariyon se</p>
+        </div>
+        <div class="why-item">
+          <div class="why-icon">
+            <img src="./assets/img/best-price.png" alt="" width="25" height="25" />
+          </div>
+          <h3>Best Prices</h3>
+          <p>Roz ki zaroorat par behtar daam</p>
+        </div>
+        <div class="why-item">
+          <div class="why-icon">
+            <img src="./assets/img/24-hours-support.png" alt="" width="25" height="25" />
+          </div>
+          <h3>24/7 Support</h3>
+          <p>Kabhi bhi, hum hamesha saath</p>
+        </div>
+      </div>
+      <!-- <div class="grocery-art">🛍️🥬🥦🍅</div> -->
+    </div>
+  </section>
+
+  <section class="download" id="download">
+    <div class="container download-inner">
+      <h2>Download Tokri App Now</h2>
+      <p>
+        Gulabpura &amp; Vijaynagar me daily needs delivery ke liye sabse
+        bharosemand app
+      </p>
+      <div class="store-row">
+        <div class="store">
+          <span class="sicon">
+            <img src="./assets/img/google-play.png" alt="" class="sicon" width="25" height="25" />
+          </span>
+          <div><small>GET IT ON</small><b>Google Play</b></div>
+        </div>
+        <div class="store">
+          <span class="sicon">
+            <img src="./assets/img/game.png" alt="" class="sicon" width="25" height="25" />
+          </span>
+          <div><small>Download on the</small><b>App Store</b></div>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <span class="step-icon">🛒</span>Browse Products
+        </div>
+        <div>→</div>
+        <div class="step"><span class="step-icon">✓</span>Place Order</div>
+        <div>→</div>
+        <div class="step">
+          <span class="step-icon">
+            <img src="./assets/img/takeaway.png" alt="" width="25" height="25" />
+          </span>Get It Delivered
+        </div>
+      </div>
+    </div>
+    <div class="hand-phone">
+      <img src="./assets/img/online-shopping.png" alt="mobile icon" width="360" height="360">
+    </div>
+  </section>
+
+
+  <!-- <footer id="contact">
+    © 2026 Tokri — Har Ghar Ki Tokri · Gulabpura &amp; Vijaynagar
+  </footer> -->
+  <!-- ==================== CONTACT SECTION ==================== -->
+  <section class="contact-section" id="contact">
+    <div class="contact-container">
+
+      <!-- Section Heading -->
+      <div class="contact-heading">
+        <span class="contact-badge">
+          <i class="fas fa-headset"></i> We're Here to Help
+        </span>
+
+        <h2>Let's Talk About <span>Tokri</span></h2>
+
+        <p>
+          Have a question, suggestion, or business inquiry?
+          We'd love to hear from you.
+        </p>
+      </div>
+
+      <div class="contact-content">
+
+        <!-- Contact Information -->
+        <div class="contact-info">
+          <div class="contact-info-header">
+            <h3>Get in Touch</h3>
+            <p>
+              Whether you're a customer, local store owner, or delivery partner,
+              our team is here to help.
+            </p>
+          </div>
+
+          <div class="contact-info-list">
+
+            <div class="contact-info-item">
+              <div class="contact-icon">
+               <img src="./assets/img/placeholder.png" alt="location" width="30" height="30">
+              </div>
+              <div>
+                <h4>Our Service Areas</h4>
+                <p>Gulabpura &amp; Vijaynagar, Rajasthan</p>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="contact-icon">
+                <img src="./assets/img/gmail.png" alt="gmail" width="30" height="30">
+              </div>
+              <div>
+                <h4>Email Us</h4>
+                <p>Have a query? Send us a message anytime.</p>
+                <a href="mailto:your-email@example.com">
+                  your-email@example.com
+                </a>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="contact-icon">
+                <img src="./assets/img/customer-service.png" alt="support" width="30" height="30">
+              </div>
+              <div>
+                <h4>Support</h4>
+                <p>We're here to help with your questions and feedback.</p>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="contact-help-card">
+            <div class="contact-help-icon">
+              <img src="./assets/img/wicker-basket.png" alt="need" width="30" height="30">
+            </div>
+            <div>
+              <h4>Need Everyday Essentials?</h4>
+              <p>Discover convenient local shopping with Tokri.</p>
+              <a href="#download">
+                Explore Tokri <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="contact-decoration contact-decoration-one"></div>
+          <div class="contact-decoration contact-decoration-two"></div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="contact-form-wrapper">
+          <div class="contact-form-heading">
+            <h3>Send Us a Message</h3>
+            <p>Fill out the form below and tell us how we can help.</p>
+          </div>
+
+          <form class="contact-form" id="tokriContactForm">
+
+            <div class="contact-form-row">
+              <div class="contact-form-group">
+                <label for="contactName">Your Name</label>
+                <input type="text" id="contactName" name="name" placeholder="Enter your full name" required>
+              </div>
+
+              <div class="contact-form-group">
+                <label for="contactEmail">Email Address</label>
+                <input type="email" id="contactEmail" name="email" placeholder="you@example.com" required>
+              </div>
+            </div>
+
+            <div class="contact-form-group">
+              <label for="contactPhone">Phone Number</label>
+              <input type="tel" id="contactPhone" name="phone" placeholder="Enter your phone number"
+                pattern="[0-9+\-\s()]{7,20}">
+            </div>
+
+            <div class="contact-form-group">
+              <label for="contactSubject">How Can We Help?</label>
+              <select id="contactSubject" name="subject" required>
+                <option value="" disabled selected>Select an inquiry type</option>
+                <option value="Order Support">Order Support</option>
+                <option value="Product Inquiry">Product Inquiry</option>
+                <option value="Become a Store Partner">Become a Store Partner</option>
+                <option value="Become a Delivery Partner">Become a Delivery Partner</option>
+                <option value="Business Partnership">Business Partnership</option>
+                <option value="Feedback or Suggestion">Feedback or Suggestion</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <div class="contact-form-group">
+              <label for="contactMessage">Your Message</label>
+              <textarea id="contactMessage" name="message" rows="5" placeholder="Write your message here..."
+                required></textarea>
+            </div>
+
+            <button type="submit" class="contact-submit-btn">
+              Send Message
+              <i class="fas fa-paper-plane"></i>
+            </button>
+
+            <p class="contact-form-note">
+              <i class="fas fa-shield-alt"></i>
+              Your information should be handled securely.
+            </p>
+
+            <p class="contact-form-status" id="contactFormStatus" role="status" aria-live="polite"></p>
+
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <style>
+    /* ==================== CONTACT SECTION ==================== */
+
+    .contact-section {
+      position: relative;
+      overflow: hidden;
+      padding: 100px 20px;
+      background: #f8faf8;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .contact-container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .contact-heading {
+      max-width: 680px;
+      margin: 0 auto 55px;
+      text-align: center;
+    }
+
+    .contact-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 18px;
+      padding: 9px 16px;
+      border: 1px solid #d9eddf;
+      border-radius: 50px;
+      background: #eaf7ee;
+      color: #16803c;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .contact-heading h2 {
+      margin: 0 0 16px;
+      color: #17251b;
+      font-size: clamp(30px, 4vw, 46px);
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -1.5px;
+    }
+
+    .contact-heading h2 span {
+      color: #219447;
+    }
+
+    .contact-heading>p {
+      max-width: 580px;
+      margin: 0 auto;
+      color: #6b756e;
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .contact-content {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 30px;
+      align-items: stretch;
+    }
+
+    /* Contact Information */
+
+    .contact-info {
+      position: relative;
+      overflow: hidden;
+      padding: 42px 35px;
+      border-radius: 24px;
+      background: #176d35;
+      color: #ffffff;
+      isolation: isolate;
+    }
+
+    .contact-info-header,
+    .contact-info-list,
+    .contact-help-card {
+      position: relative;
+      z-index: 2;
+    }
+
+    .contact-info-header h3 {
+      margin: 0 0 12px;
+      color: #ffffff;
+      font-size: 28px;
+      font-weight: 800;
+    }
+
+    .contact-info-header>p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .contact-info-list {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      margin-top: 38px;
+    }
+
+    .contact-info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .contact-icon {
+      display: flex;
+      flex: 0 0 48px;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.12);
+      color: #c4f5a6;
+      font-size: 18px;
+    }
+
+    .contact-info-item h4 {
+      margin: 2px 0 7px;
+      color: #ffffff;
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .contact-info-item p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.76);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .contact-info-item a {
+      display: inline-block;
+      margin-top: 5px;
+      color: #d0f8b9;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      overflow-wrap: anywhere;
+    }
+
+    .contact-info-item a:hover {
+      color: #ffffff;
+    }
+
+    .contact-help-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+      margin-top: 42px;
+      padding: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 17px;
+      background: rgba(255, 255, 255, 0.09);
+    }
+
+    .contact-help-icon {
+      display: flex;
+      flex: 0 0 42px;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: #f4a63b;
+      color: #173d22;
+      font-size: 18px;
+    }
+
+    .contact-help-card h4 {
+      margin: 0 0 7px;
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .contact-help-card p {
+      margin: 0 0 12px;
+      color: rgba(255, 255, 255, 0.76);
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    .contact-help-card a {
+      color: #d0f8b9;
+      font-size: 13px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .contact-help-card a i {
+      margin-left: 5px;
+      transition: transform 0.2s ease;
+    }
+
+    .contact-help-card a:hover i {
+      transform: translateX(4px);
+    }
+
+    .contact-decoration {
+      position: absolute;
+      z-index: 1;
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .contact-decoration-one {
+      top: -110px;
+      right: -100px;
+      width: 280px;
+      height: 280px;
+    }
+
+    .contact-decoration-two {
+      right: -45px;
+      bottom: -150px;
+      width: 320px;
+      height: 320px;
+    }
+
+    /* Contact Form */
+
+    .contact-form-wrapper {
+      padding: 42px 38px;
+      border: 1px solid #e7eee8;
+      border-radius: 24px;
+      background: #ffffff;
+      box-shadow: 0 12px 45px rgba(27, 63, 38, 0.045);
+    }
+
+    .contact-form-heading {
+      margin-bottom: 30px;
+    }
+
+    .contact-form-heading h3 {
+      margin: 0 0 9px;
+      color: #19271d;
+      font-size: 25px;
+      font-weight: 800;
+    }
+
+    .contact-form-heading p {
+      margin: 0;
+      color: #778079;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .contact-form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 17px;
+    }
+
+    .contact-form-group {
+      display: flex;
+      min-width: 0;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .contact-form-group label {
+      color: #28362c;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .contact-form-group input,
+    .contact-form-group select,
+    .contact-form-group textarea {
+      width: 100%;
+      min-width: 0;
+      box-sizing: border-box;
+      padding: 14px 15px;
+      border: 1px solid #e0e8e1;
+      border-radius: 11px;
+      outline: none;
+      background: #fbfdfb;
+      color: #27342a;
+      font-family: inherit;
+      font-size: 13px;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease,
+        background 0.2s ease;
+    }
+
+    .contact-form-group input,
+    .contact-form-group select {
+      min-height: 48px;
+    }
+
+    .contact-form-group input::placeholder,
+    .contact-form-group textarea::placeholder {
+      color: #a0aaa2;
+    }
+
+    .contact-form-group select {
+      cursor: pointer;
+    }
+
+    .contact-form-group textarea {
+      min-height: 125px;
+      resize: vertical;
+      line-height: 1.7;
+    }
+
+    .contact-form-group input:focus,
+    .contact-form-group select:focus,
+    .contact-form-group textarea:focus {
+      border-color: #24994a;
+      background: #ffffff;
+      box-shadow: 0 0 0 4px rgba(36, 153, 74, 0.09);
+    }
+
+    .contact-submit-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: 100%;
+      min-height: 53px;
+      padding: 15px 20px;
+      border: none;
+      border-radius: 12px;
+      background: #219447;
+      color: #ffffff;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .contact-submit-btn:hover {
+      transform: translateY(-2px);
+      background: #177a37;
+      box-shadow: 0 8px 20px rgba(33, 148, 71, 0.2);
+    }
+
+    .contact-submit-btn:focus-visible {
+      outline: 3px solid #a9e8b9;
+      outline-offset: 3px;
+    }
+
+    .contact-form-note {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin: -5px 0 0;
+      color: #849087;
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .contact-form-note i {
+      color: #219447;
+    }
+
+    .contact-form-status {
+      display: none;
+      margin: 0;
+      padding: 12px;
+      border-radius: 9px;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .contact-form-status.is-visible {
+      display: block;
+    }
+
+    .contact-form-status.is-error {
+      background: #fff0ed;
+      color: #a52c20;
+    }
+
+    .contact-form-status.is-success {
+      background: #eaf7ee;
+      color: #176d35;
+    }
+
+    /* Responsive */
+
+    @media (max-width: 900px) {
+      .contact-section {
+        padding: 80px 20px;
+      }
+
+      .contact-content {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .contact-info {
+        padding: 35px;
+      }
+
+      .contact-info-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 25px 20px;
+      }
+
+      .contact-help-card {
+        margin-top: 30px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .contact-section {
+        padding: 60px 16px;
+      }
+
+      .contact-heading {
+        margin-bottom: 35px;
+      }
+
+      .contact-heading h2 {
+        font-size: 31px;
+        letter-spacing: -0.8px;
+      }
+
+      .contact-heading>p {
+        font-size: 13px;
+      }
+
+      .contact-info {
+        padding: 28px 22px;
+        border-radius: 19px;
+      }
+
+      .contact-info-header h3 {
+        font-size: 24px;
+      }
+
+      .contact-info-list {
+        grid-template-columns: 1fr;
+        gap: 23px;
+        margin-top: 30px;
+      }
+
+      .contact-help-card {
+        padding: 16px;
+      }
+
+      .contact-form-wrapper {
+        padding: 28px 20px;
+        border-radius: 19px;
+      }
+
+      .contact-form-heading h3 {
+        font-size: 22px;
+      }
+
+      .contact-form-row {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .contact-form {
+        gap: 18px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .contact-section {
+        padding-right: 12px;
+        padding-left: 12px;
+      }
+
+      .contact-info,
+      .contact-form-wrapper {
+        padding: 22px 16px;
+      }
+
+      .contact-heading h2 {
+        font-size: 27px;
+      }
+
+      .contact-icon {
+        flex-basis: 42px;
+        width: 42px;
+        height: 42px;
+      }
+    }
+  </style>
+
+  <script>
+    /*
+      Frontend validation only.
+      Connect this form to your backend API before using it in production.
+    */
+
+    (function () {
+      const contactForm = document.getElementById("tokriContactForm");
+      const statusElement = document.getElementById("contactFormStatus");
+
+      if (!contactForm || !statusElement) return;
+
+      contactForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        if (!contactForm.checkValidity()) {
+          contactForm.reportValidity();
+          return;
+        }
+
+        statusElement.className = "contact-form-status is-visible is-error";
+        statusElement.textContent =
+          "The contact form is not connected yet. Please connect it to your backend API before accepting messages.";
+      });
+    })();
+  </script>
+
+  <script>
+    const menuButton = document.querySelector(".mobile-menu");
+    const navigation = document.querySelector("#primary-navigation");
+
+    if (menuButton && navigation) {
+      menuButton.addEventListener("click", () => {
+        const isOpen = navigation.classList.toggle("is-open");
+        menuButton.setAttribute("aria-expanded", String(isOpen));
+        menuButton.setAttribute(
+          "aria-label",
+          isOpen ? "Close navigation menu" : "Open navigation menu"
+        );
+        menuButton.textContent = isOpen ? "✕" : "☰";
+      });
+
+      navigation.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          navigation.classList.remove("is-open");
+          menuButton.setAttribute("aria-expanded", "false");
+          menuButton.setAttribute("aria-label", "Open navigation menu");
+          menuButton.textContent = "☰";
+        });
+      });
+
+      document.addEventListener("click", (event) => {
+        if (!navigation.contains(event.target) && !menuButton.contains(event.target)) {
+          navigation.classList.remove("is-open");
+          menuButton.setAttribute("aria-expanded", "false");
+          menuButton.setAttribute("aria-label", "Open navigation menu");
+          menuButton.textContent = "☰";
+        }
+      });
+    }
+  </script>
+</body>
+
+</html>
