@@ -622,10 +622,19 @@
 
     .hand-phone {
       position: absolute;
-      left: 55px;
+      left: 24px;
       bottom: -20px;
-      font-size: 95px;
-      transform: rotate(-7deg);
+      width: 220px;
+      max-width: 22%;
+      pointer-events: none;
+      opacity: .96;
+    }
+
+    .download-availability-note { position: relative; z-index: 2; color: #e4fff0; }
+    @media (max-width: 900px) {
+      .hand-phone { display: none; }
+      .download-inner { width: min(100% - 24px, 760px); }
+      .download .store-row { gap: 10px; }
     }
 
     footer {
@@ -1701,6 +1710,21 @@
         transition: none;
       }
     }
+
+    /* Added legal footer links */
+    .tokri-footer {
+      padding: 28px 4%; text-align: center; color: #6b8078;
+      font-size: 13px; background: #f7fbf8; border-top: 1px solid #e5eee8;
+    }
+    .tokri-footer-links { display:flex; flex-wrap:wrap; justify-content:center; gap:10px 22px; margin:0 auto 14px; }
+    .tokri-footer-links a { color:#087b3e; font-weight:700; }
+    .tokri-footer-links a:hover { color:#ff6415; text-decoration:underline; }
+    .tokri-footer-copy { line-height:1.7; }
+    .download .store:focus-visible, .hero-copy .store:focus-visible { outline:3px solid #ffb36b; outline-offset:3px; }
+    .download .store.is-unavailable, .hero-copy .store.is-unavailable { cursor:default; opacity:.9; }
+    .download .store.is-unavailable small, .hero-copy .store.is-unavailable small { color:#d8e8de; }
+    @media (max-width:560px) { .tokri-footer-links { gap:12px 16px; } .tokri-footer { padding:24px 16px; } }
+
   </style>
 </head>
 
@@ -1766,18 +1790,14 @@
           </div>
         </div>
         <a class="cta" href="#download">Download Tokri App <span>→</span></a>
-        <div class="store-row">
-          <div class="store">
-            <span class="sicon">
-              <img src="./assets/img/google-play.png" alt="" class="sicon" width="25" height="25" />
-            </span>
-            <div><small>GET IT ON</small><b>Google Play</b></div>
+        <div class="store-row" aria-label="App availability">
+          <div class="store is-unavailable" role="group" aria-label="Coming Soon listing not yet available">
+            <span class="sicon"><img src="./assets/img/google-play.png" alt="" class="sicon" width="25" height="25" /></span>
+            <div><small>ANDROID APP</small><b>Coming Soon</b></div>
           </div>
-          <div class="store">
-            <span class="sicon">
-              <img src="./assets/img/game.png" alt="" class="sicon" width="25" height="25" />
-            </span>
-            <div><small>Download on the</small><b>App Store</b></div>
+          <div class="store is-unavailable" role="group" aria-label="Coming Soon listing not yet available">
+            <span class="sicon"><img src="./assets/img/game.png" alt="" class="sicon" width="25" height="25" /></span>
+            <div><small>IOS APP</small><b>Coming Soon</b></div>
           </div>
         </div>
       </div>
@@ -2018,20 +2038,17 @@
         Gulabpura &amp; Vijaynagar me daily needs delivery ke liye sabse
         bharosemand app
       </p>
-      <div class="store-row">
-        <div class="store">
-          <span class="sicon">
-            <img src="./assets/img/google-play.png" alt="" class="sicon" width="25" height="25" />
-          </span>
-          <div><small>GET IT ON</small><b>Google Play</b></div>
-        </div>
-        <div class="store">
-          <span class="sicon">
-            <img src="./assets/img/game.png" alt="" class="sicon" width="25" height="25" />
-          </span>
-          <div><small>Download on the</small><b>App Store</b></div>
-        </div>
+      <div class="store-row" aria-label="App availability">
+        <div class="store is-unavailable" role="group" aria-label="Coming Soon listing not yet available">
+            <span class="sicon"><img src="./assets/img/google-play.png" alt="" class="sicon" width="25" height="25" /></span>
+            <div><small>ANDROID APP</small><b>Coming Soon</b></div>
+          </div>
+        <div class="store is-unavailable" role="group" aria-label="Coming Soon listing not yet available">
+            <span class="sicon"><img src="./assets/img/game.png" alt="" class="sicon" width="25" height="25" /></span>
+            <div><small>IOS APP</small><b>Coming Soon</b></div>
+          </div>
       </div>
+      <p class="download-availability-note" style="font-size:13px;margin-top:12px;">Official download links will appear here once the app is published.</p>
       <div class="steps">
         <div class="step">
           <span class="step-icon">🛒</span>Browse Products
@@ -2052,9 +2069,15 @@
   </section>
 
 
-  <!-- <footer id="contact">
-    © 2026 Tokri — Har Ghar Ki Tokri · Gulabpura &amp; Vijaynagar
-  </footer> -->
+  <footer class="tokri-footer" aria-label="Website footer">
+    <nav class="tokri-footer-links" aria-label="Legal information">
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="refund-policy.html">Refund Policy</a>
+      <a href="cancellation-policy.html">Cancellation Policy</a>
+      <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+    </nav>
+    <div class="tokri-footer-copy">© 2026 Tokri — Har Ghar Ki Tokri · Gulabpura &amp; Vijaynagar, Rajasthan</div>
+  </footer>
   <!-- ==================== CONTACT SECTION ==================== -->
   <section class="contact-section" id="contact">
     <div class="contact-container">
